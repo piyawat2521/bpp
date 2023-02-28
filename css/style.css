@@ -1,0 +1,189 @@
+@import url("https://fonts.googleapis.com/css?family=Mitr:300|Prompt&display=swap");
+body {
+    font-size: 16px;
+}
+
+.bannerImg {
+    text-align: center;
+    display: block;
+    width: 100%;
+    height: auto;
+    border-bottom: 15px solid #eb3b7d;
+}
+
+.bannerImg img {
+    width: 80%;
+    height: auto;
+}
+
+.indexText {
+    margin: 20px;
+    padding: 25px;
+    font-family: "Mitr", sans-serif;
+}
+
+.font-h1 {
+    color: #181818ff;
+    font-size: 20px;
+    font-family: "Prompt", sans-serif;
+}
+
+.mainbox {
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 20px;
+}
+
+.box {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-bottom: 3pt solid #eb3b7d;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: "Mitr", sans-serif;
+    font-size: 20px;
+}
+
+.boxQ {
+    display: block;
+    width: 55%;
+    border: 1pt solid #eee;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.textQ {
+    font-size: 16px;
+    font-weight: bold;
+    color: #eb3b7d;
+    font-family: "Prompt", sans-serif;
+}
+
+.textQ input {
+    display: inline-block;
+    width: 100px;
+}
+
+.boxA {
+    display: block;
+    width: 100%;
+    padding-left: 20px;
+    line-height: 30px;
+}
+
+.inputAll {
+    display: inline-block;
+}
+
+.inputAll .inputText {
+    display: inline-block;
+    width: 120%;
+}
+
+h5 {
+    font-family: "Prompt", sans-serif;
+}
+
+.loginBox {
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 25px;
+    margin-top: 50px;
+    background-color: #eb3b7d;
+    font-family: "Prompt", sans-serif;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px 0px #000;
+}
+
+.label {
+    display: block;
+    width: 100%;
+    height: auto;
+    text-align: right;
+    color: #fff;
+    font-size: 18px;
+}
+
+.alertBox {
+    margin-top: 40px;
+    text-align: center;
+    font-family: "Prompt", sans-serif;
+}
+
+.footer {
+    margin-top: 55px;
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 25px;
+    font-size: 14px;
+    text-align: center;
+    border-top: 1pt solid #eee;
+}
+
+.showName {
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 25px;
+    margin-top: 55px;
+}
+
+.showName h5 {
+    display: block;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 1pt solid #eeeeee;
+    margin-bottom: 20px;
+}
+
+.bmiText b {
+    color: #4c4c4c;
+    font-weight: bold;
+    text-decoration-line: underline;
+}
+
+.logoPic {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-family: "Prompt", sans-serif;
+}
+
+.logoPic img {
+    text-align: center;
+    width: 50px;
+    height: auto;
+}
+
+.picText {
+    display: inline-block;
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+
+.textHappy td {
+    font-size: 12px;
+}
+
+.textHappy td img {
+    width: 40px;
+}
+
+.btnS {
+    text-align: right;
+    display: block;
+    width: 100%;
+    height: auto;
+    font-family: "Prompt", sans-serif;
+}
+
+.textIndex {
+    font-size: 25px;
+    font-family: "Prompt", sans-serif;
+}
