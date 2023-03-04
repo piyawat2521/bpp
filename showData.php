@@ -12,9 +12,10 @@ include("session/sessionUser.php");
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="MDB/css/bootstrap.min.css">
     <link rel="stylesheet" href="MDB/css/mdb.min.css">
+    <link rel="stylesheet" href="css/editDetail.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
     <script>
     function printDiv() {
         var divContents = document.getElementById("GFG").innerHTML;
@@ -28,7 +29,6 @@ include("session/sessionUser.php");
     }
     </script>
 
-
     <title><?php include("title-footer/title.php"); ?></title>
 </head>
 
@@ -40,93 +40,86 @@ include("session/sessionUser.php");
     include("banner/banner.php");
     include("config/connect.php");
 
-    $se = mysqli_query($con, " select* from in_data where code_check = '" . $_SESSION["idCode"] . "' ");
+    $se = mysqli_query($con, " select* from in_data where id_code = '" . $_SESSION["idCode"] . "' ");
     $row = mysqli_fetch_assoc($se);
 
     /* sex */
-    //  $sex = $row["p_sex"];
-    //  $weightBmi = $row["in1_3"]*2.54;
-
-    $sex = $row["p_sex"];
+    $sex = $row["sex"];
     $hi = $row["in1_2"] / 100;
     $hi2 = $hi * $hi;
-    $wtb = $row["in1_1"];
-    $weightBmi = $wtb / $hi2;
-
-    $wt =  $row["in1_3"] / 0.39370;
+    $wt = $row["in1_1"];
+    $weightBmi = $wt / $hi2;
 
     if ($sex == 1) {
       $sexTh = "ชาย";
 
-      if ($weightBmi >= 90) {
-        $wt = "ท่านอยู่ในภาวะลงพุง";
+      if ($wt >= 90) {
+        $wt_t = "ท่านอยู่ในภาวะอ้วนลงพุง";
       } else {
-        $wt = "ท่านไม่อยู่ในภาวะลงพุง";
+        $wt_t = "ท่านไม่อยู่ในภาวะอ้วนลงพุง";
       }
     } elseif ($sex == 2) {
       $sexTh = "หญิง";
 
-      if ($weightBmi >= 80) {
-        $wt = "ท่านอยู่ในภาวะลงพุง";
+      if ($wt >= 80) {
+        $wt_t = "ท่านอยู่ในภาวะอ้วนลงพุง";
       } else {
-        $wt = "ท่านไม่อยู่ในภาวะลงพุง";
+        $wt_t = "ท่านไม่อยู่ในภาวะอ้วนลงพุง";
       }
     } elseif ($sex == 3) {
       $sexTh = "เพศทางเลือก";
 
-      if ($weightBmi >= 90) {
-        $wt_sex1 = "ท่านอยู่ในภาวะลงพุง(ชาย)";
+      if ($wt >= 90) {
+        $wt_sex1 = "ท่านอยู่ในภาวะอ้วนลงพุง(ชาย)";
       } else {
-        $wt_sex1 = "ท่านไม่อยู่ในภาวะลงพุง(ชาย)";
+        $wt_sex1 = "ท่านไม่อยู่ในภาวะอ้วนลงพุง(ชาย)";
       }
 
-      if ($weightBmi >= 90) {
-        $wt_sex2 = "ท่านอยู่ในภาวะลงพุง(หญิง)";
+      if ($wt >= 90) {
+        $wt_sex2 = "ท่านอยู่ในภาวะอ้วนลงพุง(หญิง)";
       } else {
-        $wt_sex2 = "ท่านไม่อยู่ในภาวะลงพุง(หญิง)";
+        $wt_sex2 = "ท่านไม่อยู่ในภาวะอ้วนลงพุง(หญิง)";
       }
     }
     /*-----*/
-    $h1 = $row["in1_2"] / 100;
-    $h2 = $row["in1_2"] / 100;
 
-    $h = $h1 * $h2;
+    $heightBmi = $weightBmi;
+    $bmi = $heightBmi;
 
-    $heightBmi = number_format($row["in1_1"] / $h, 1);
-    //echo "bmi=". $heightBmi = 24.9;
 
-    if ($heightBmi >= 0 and $heightBmi <= 18.4) {
-      $bmi_text = " | <strong>น้ำหนัก : </strong>น้ำหนักน้อย | <strong>ภาวะเสี่ยงต่อโรค : </strong>ต่ำ";
-    } elseif ($heightBmi >= 18.5 and $heightBmi <= 22.9) {
-      $bmi_text = " | <strong>น้ำหนัก : </strong>น้ำหนักปกติ | <strong>ภาวะเสี่ยงต่อโรค : </strong>เท่าคนปกติ";
-    } elseif ($heightBmi >= 23.0 and $heightBmi <= 24.9) {
-      $bmi_text = " | <strong>น้ำหนัก : </strong>น้ำหนักเกิน | <strong>ภาวะเสี่ยงต่อโรค : </strong>มากกว่าปกติ";
-    } elseif ($heightBmi >= 25.0 and $heightBmi <= 29.9) {
-      $bmi_text = " | <strong>น้ำหนัก : </strong>โรคอ้วน | <strong>ภาวะเสี่ยงต่อโรค : </strong>สูง";
+
+    if ($heightBmi < 18.5) {
+      $w = "น้ำหนักน้อย";
+      $r = "ภาวะเสี่ยงต่อโรค : ต่ำ";
+    } elseif ($heightBmi >= 18.5 or $heightBmi <= 22.9) {
+      $w = "น้ำหนักปกติ";
+      $r = "ภาวะเสี่ยงต่อโรค : เท่าคนปกติ";
+    } elseif ($heightBmi >= 23.0 or $heightBmi <= 24.9) {
+      $w = "น้ำหนักปกติ";
+      $r = "ภาวะเสี่ยงต่อโรค : มากกว่าปกติ";
+    } elseif ($heightBmi >= 25.0 or $heightBmi <= 29.9) {
+      $w = "โรคอ้วน";
+      $r = "ภาวะเสี่ยงต่อโรค : สูง";
     } elseif ($heightBmi >= 30.0) {
-      $bmi_text = " | <strong>น้ำหนัก : </strong>อ้วนมาก | <strong>ภาวะเสี่ยงต่อโรค : </strong>อยู่ในช่วงอันตราย";
+      $w = "อ้วนมาก";
+      $r = "ภาวะเสี่ยงต่อโรค : อยู่ในช่วงอันตราย";
     }
-    /*
-  if($heightBmi < 18.5){
-    $w = "น้ำหนักน้อย";
-    $r = "ภาวะเสี่ยงต่อโรค : ต่ำ";
-  }elseif($heightBmi >= 18.5 or $heightBmi <= 22.9){
-    $w = "น้ำหนักปกติ";
-    $r = "ภาวะเสี่ยงต่อโรค : เท่าคนปกติ";
-  }elseif($heightBmi >= 23.0 or $heightBmi <= 24.9){
-    $w = "น้ำหนักปกติ";
-    $r = "ภาวะเสี่ยงต่อโรค : มากกว่าปกติ";
-  }elseif($heightBmi >= 25.0 or $heightBmi <= 29.9){
-    $w = "โรคอ้วน";
-    $r = "ภาวะเสี่ยงต่อโรค : สูง";
-  }elseif($heightBmi >= 30.0){
-    $w = "อ้วนมาก";
-    $r = "ภาวะเสี่ยงต่อโรค : อยู่ในช่วงอันตราย";
-  }
-*/
+
+    if ($bmi >= 0 and $bmi <= 18.4) {
+      $bmi_text = " | <strong>น้ำหนัก : </strong>น้ำหนักน้อย | <strong>ภาวะเสี่ยงต่อโรค : </strong>ต่ำ | < 18.5";
+    } elseif ($bmi >= 18.5 and $bmi <= 22.9) {
+      $bmi_text = " | <strong>น้ำหนัก : </strong>น้ำหนักปกติ | <strong>ภาวะเสี่ยงต่อโรค : </strong>เท่าคนปกติ | 18.5-22.9";
+    } elseif ($bmi >= 23.0 and $bmi <= 24.9) {
+      $bmi_text = " | <strong>น้ำหนัก : </strong>น้ำหนักเกิน | <strong>ภาวะเสี่ยงต่อโรค : </strong>มากกว่าปกติ | 23-24.9";
+    } elseif ($bmi >= 25.0 and $bmi <= 29.9) {
+      $bmi_text = " | <strong>น้ำหนัก : </strong>โรคอ้วน | <strong>ภาวะเสี่ยงต่อโรค : </strong>สูง | 25-29.9";
+    } elseif ($bmi >= 30.0) {
+      $bmi_text = " | <strong>น้ำหนัก : </strong>อ้วนมาก | <strong>ภาวะเสี่ยงต่อโรค : </strong>อยู่ในช่วงอันตราย | >= 30";
+    }
+
     $numData = array("", "0", "25", "50", "75", "100");
 
-    $nm1 = number_format(($numData[$row["in2"]] + $numData[$row["in3"]] + $numData[$row["in4"]] + $numData[$row["in5"]] + $numData[$row["in6"]]) / 5, 2);
+    $nm1 = number_format(($numData[$row["in2"]] + $numData[$row["hn3"]] + $numData[$row["hn4"]] + $numData[$row["hn5"]] + $numData[$row["hn6"]] + $numData[$row["hn7"]] + $numData[$row["in3"]] + $numData[$row["in4"]] + $numData[$row["in5"]] + $numData[$row["in6"]]) / 10, 2);
     $nm2 = number_format(($numData[$row["in7"]] + $numData[$row["in8"]] + $numData[$row["in9"]] + $numData[$row["in10"]] + $numData[$row["in11"]]) / 5, 2);
     $nm3 = number_format(($numData[$row["in12"]] + $numData[$row["in13"]] + $numData[$row["in14"]] + $numData[$row["in15"]] + $numData[$row["in16"]]) / 5, 2);
     $nm4 = number_format(($numData[$row["in17"]] + $numData[$row["in18"]] + $numData[$row["in19"]] + $numData[$row["in20"]] + $numData[$row["in21"]]) / 5, 2);
@@ -245,7 +238,7 @@ include("session/sessionUser.php");
             style="margin-top: 20px; padding-top: 20px; padding-bottom: 20px; font-weight: bold; text-align: center;">
             <div class="row">
                 <div class="col-md-12">
-                    <?= "<i class='far fa-calendar-alt'></i> " . $row["in_date"] . " <i class='far fa-clock'></i> " . $row["in_time"] ?>
+                    <?= $row["in_name"] . " <i class='far fa-calendar-alt'></i> " . $row["in_date"] . " <i class='far fa-clock'></i> " . $row["in_time"] ?>
                 </div>
             </div>
         </div>
@@ -255,15 +248,16 @@ include("session/sessionUser.php");
                 <div class="col-md-12">
 
                     <div>
-                        <h5>สรุปผลแบบสำรวจความสุขคนทำงานในองค์กร</h5>
+                        <h5>BMI ดัชนีมวลกาย</h5>
                     </div>
 
-                    <div class="alert alert-warning" role="alert">
-                        <div class="bmiText"><b><i class="fas fa-weight"></i> ค่าดัชนีมวลกาย (BMI)</b> :
-                            <?= number_format($heightBmi, 2) . " " . $bmi_text ?></div>
-                        <div class="bmiText"><b><i class="fas fa-user"></i> ค่าภาวะลงพุง</b> <i
-                                class="fas fa-venus-mars"></i> เพศที่ท่านระบุ</b> : <?= $sexTh ?> <b>&nbsp;&nbsp; :
-                                <?= $wt . $wt_sex1 . " - " . $wt_sex2 ?></div>
+                    <div class="alert alert-danger" role="alert">
+                        <div class="bmiText"><b><i class="fas fa-venus-mars"></i> เพศที่ท่านระบุ</b> : <?= $sexTh ?>
+                            <b><i class="fas fa-weight"></i> ค่า BMI</b> :
+                            <?= number_format($heightBmi, 1, '.', '') . "  " . $bmi_text ?>
+                        </div>
+                        <div class="bmiText"><b><i class="fas fa-user"></i> ภาวะอ้วนลงพุง<?= $sexTh ?></b> :
+                            <?= $wt_t . " " . $wt_sex1 . " - " . $wt_sex2 ?></div>
                     </div>
 
 
@@ -277,7 +271,7 @@ include("session/sessionUser.php");
                     <div>
                         <h5>กราฟใยแมงมุมแสดงค่าเฉลี่ยความสุขรายมิติ</h5>
                     </div>
-                    <div style="margin-top: 20px;"><canvas id="myChart" style="width: 22px; height: 7px;"></canvas>
+                    <div style="margin-top: 20px;"><canvas id="myChart" class="rada"></canvas>
                     </div>
 
                 </div>
@@ -291,7 +285,7 @@ include("session/sessionUser.php");
                         <h5>กราฟแท่งแสดงค่าเฉลี่ยความสุขรายมิติ</h5>
                     </div>
                     <div style="margin-top: 20px; width: 90%; text-align: center;"><canvas id="myChart1"
-                            style="width: 22px; height: 7px;"></canvas></div>
+                            class="radaBox"></canvas></div>
 
                 </div>
             </div>
@@ -314,13 +308,13 @@ include("session/sessionUser.php");
                             <thead>
                                 <tr>
                                     <th scope="col"><img src="img/logo1.png" alt=""></th>
-                                    <th scope="col"><img src="img/logo2.png" alt=""></th>
                                     <th scope="col"><img src="img/logo3.png" alt=""></th>
-                                    <th scope="col"><img src="img/logo4.png" alt=""></th>
+                                    <th scope="col"><img src="img/logo2.png" alt=""></th>
                                     <th scope="col"><img src="img/logo5.png" alt=""></th>
-                                    <th scope="col"><img src="img/logo6.png" alt=""></th>
                                     <th scope="col"><img src="img/logo7.png" alt=""></th>
                                     <th scope="col"><img src="img/logo8.png" alt=""></th>
+                                    <th scope="col"><img src="img/logo4.png" alt=""></th>
+                                    <th scope="col"><img src="img/logo6.png" alt=""></th>
                                     <th scope="col"><img src="img/logo9.png" alt=""></th>
                                     <th scope="col">ความสุขภาพรวม</th>
                                 </tr>
@@ -366,16 +360,24 @@ include("session/sessionUser.php");
                         </table>
                     </div>
 
-                    <br><br>
 
-                    <center><button onclick="window.print()">พิมพ์สรุปผลแบบสำรวจความสุขของท่าน</button></center>
+                    <br><br>
+                    <div class="alert alert-danger" role="alert">
+
+                        <center><button onclick="window.print()">พิมพ์สรุปผลแบบสำรวจความสุขของท่าน</button></center>
+
+                    </div>
+
                 </div>
             </div>
         </div>
 
         <?php include("title-footer/footer.php") ?>
 
-
+        <script type="text/javascript" src="MDB/js/jquery.min.js"></script>
+        <script type="text/javascript" src="MDB/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="MDB/js/mdb.min.js"></script>
+        <script type="text/javascript" src="MDB/js/popper.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 
 
@@ -387,26 +389,23 @@ include("session/sessionUser.php");
                     'ใฝ่รู้ดี', 'สุขภาพเงินดี', 'การงานดี'
                 ],
                 "datasets": [{
-                    "label": "ค่าคะแนนเฉลี่ยความสุขรายมิติ",
-                    "data": [<?= $nm1 ?>, <?= $nm2 ?>, <?= $nm3 ?>, <?= $nm4 ?>, <?= $nm5 ?>,
-                        <?= $nm6 ?>, <?= $nm7 ?>, <?= $nm8 ?>, <?= $nm9 ?>
-                    ],
-                    "fill": true,
-                    "backgroundColor": "rgba(255, 99, 132, 0.2)",
-                    "borderColor": "rgb(255, 99, 132)",
-                    "pointBackgroundColor": "rgb(255, 99, 132)",
-                    "pointBorderColor": "#fff",
-                    "pointHoverBackgroundColor": "#fff",
-                    "pointHoverBorderColor": "rgb(255, 99, 132)"
-                }, {
-                    label: '',
-                    data: [0],
-                    fill: true,
-                    backgroundColor: '#fff',
-                    borderColor: '#fff',
-                    pointBackgroundColor: '#fff',
-                    pointBorderColor: '#fff',
-                }]
+                        "label": "แสดงค่าเฉลี่ยความสุขรายมิติ",
+                        "data": [<?= $nm1 ?>, <?= $nm2 ?>, <?= $nm3 ?>, <?= $nm4 ?>, <?= $nm5 ?>,
+                            <?= $nm6 ?>, <?= $nm7 ?>, <?= $nm8 ?>, <?= $nm9 ?>
+                        ],
+                        "fill": true,
+                        "backgroundColor": "rgba(255, 99, 132, 0.2)",
+                        "borderColor": "rgb(255, 99, 132)",
+                        "pointBackgroundColor": "rgb(255, 99, 132)",
+                        "pointBorderColor": "#fff",
+                        "pointHoverBackgroundColor": "#fff",
+                        "pointHoverBorderColor": "rgb(255, 99, 132)"
+                    },
+                    {
+
+                        "data": [0],
+                    }
+                ]
             },
             "options": {
                 "elements": {
@@ -427,7 +426,7 @@ include("session/sessionUser.php");
                     'ใฝ่รู้ดี', 'สุขภาพเงินดี', 'การงานดี'
                 ],
                 "datasets": [{
-                    "label": "ค่าคะแนนเฉลี่ยความสุขรายมิติ",
+                    "label": "แสดงค่าเฉลี่ยความสุขรายมิติ",
                     "data": [<?= $nm1 ?>, <?= $nm2 ?>, <?= $nm3 ?>, <?= $nm4 ?>, <?= $nm5 ?>,
                         <?= $nm6 ?>, <?= $nm7 ?>, <?= $nm8 ?>, <?= $nm9 ?>, <?= $nm1 ?>
                     ],
@@ -455,7 +454,6 @@ include("session/sessionUser.php");
             }
         });
         </script>
-
 
 </body>
 

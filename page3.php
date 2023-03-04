@@ -24,8 +24,7 @@ include("numPage.php");
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <div class="font-h1">คำชี้แจงในการตอบแบบสำรวจ : ให้ใส่เครื่องหมาย <i class="fas fa-check"></i> ในช่อง <i
-                        class="fas fa-expand"></i> ทุกข้อที่ท่านเลือก</div>
+                <div class="font-h1">คำชี้แจงในการตอบแบบสำรวจ : ให้ใส่เครื่องหมาย <i class="fas fa-check"></i> ในช่อง <i class="fas fa-expand"></i> ทุกข้อที่ท่านเลือก</div>
             </div>
         </div>
     </div>
@@ -54,7 +53,7 @@ include("numPage.php");
                         <div class="row">
                             <div class="col-sm-12">
                                 <!-- Default input -->
-                                <label for="exampleForm2" class="textQ">7.
+                                <label for="exampleForm2" class="textQ">12.
                                     โดยรวมแล้วท่านรู้สึกว่าได้รับการพักผ่อนเพียงพอหรือไม่</label>
                                 <!-- Group of material radios - option 1 -->
                                 <div class="boxA">
@@ -96,7 +95,7 @@ include("numPage.php");
                         <div class="row">
                             <div class="col-sm-12">
                                 <!-- Default input -->
-                                <label for="exampleForm2" class="textQ">8. โดยรวมแล้วใน 1
+                                <label for="exampleForm2" class="textQ">13. โดยรวมแล้วใน 1
                                     สัปดาห์ท่านทำกิจกรรมเพื่อเป็นการพักผ่อนหย่อนใจ (อ่านหนังสือ ดูหนัง ฟังเพลง ช้อปปิ้ง
                                     เล่นเกมส์ ปลูกต้นไม้ ฯลฯ) หรือไม่</label>
                                 <!-- Group of material radios - option 1 -->
@@ -139,7 +138,7 @@ include("numPage.php");
                         <div class="row">
                             <div class="col-sm-12">
                                 <!-- Default input -->
-                                <label for="exampleForm2" class="textQ">9. โดยรวมแล้วท่านมีความเครียด
+                                <label for="exampleForm2" class="textQ">14. โดยรวมแล้วท่านมีความเครียด
                                     (เครียดจากการทำงาน/ เรื่องครอบครัว/ เรื่องอื่นๆ) บ้างหรือไม่</label>
                                 <!-- Group of material radios - option 1 -->
                                 <div class="boxA">
@@ -183,7 +182,7 @@ include("numPage.php");
                         <div class="row">
                             <div class="col-sm-12">
                                 <!-- Default input -->
-                                <label for="exampleForm2" class="textQ">10.
+                                <label for="exampleForm2" class="textQ">15.
                                     โดยรวมแล้วท่านคิดว่าชีวิตของท่านเป็นไปตามที่ท่านคาดหวัง หรือไม่
                                 </label>
                                 <!-- Group of material radios - option 1 -->
@@ -229,7 +228,7 @@ include("numPage.php");
                         <div class="row">
                             <div class="col-sm-12">
                                 <!-- Default input -->
-                                <label for="exampleForm2" class="textQ">11. เมื่อประสบปัญหาในชีวิต
+                                <label for="exampleForm2" class="textQ">16. เมื่อประสบปัญหาในชีวิต
                                     โดยทั่วไปท่านสามารถจัดการกับปัญหาได้หรือไม่</label>
                                 <!-- Group of material radios - option 1 -->
                                 <div class="boxA">
@@ -269,9 +268,51 @@ include("numPage.php");
                         </div>
                     </div>
 
+                    <div class="container boxQ">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <!-- Default input -->
+                                <label for="exampleForm2" class="textQ">CV2. สถานการณ์การแพร่ระบาดโควิด-19 มีผลกระทบต่อภาพรวมในมิติผ่อนคลายดี ของท่านเพียงใด</label>
+                                <!-- Group of material radios - option 1 -->
+                                <div class="boxA">
+                                    <div class="form-check">
+                                        <input type="radio" name="cv2" class="form-check-input" id="cv2" value="1">
+                                        <label class="form-check-label" for="materialGroupExample1">1.
+                                            มีผลกระทบมากที่สุด </label>
+                                    </div>
+                                    <!-- Group of material radios - option 2 -->
+                                    <div class="form-check">
+                                        <input type="radio" name="cv2" class="form-check-input" id="cv2" value="2">
+                                        <label class="form-check-label" for="materialGroupExample2">2.
+                                            มีผลกระทบมาก</label>
+                                    </div>
+                                    <!-- Group of material radios - option 3 -->
+                                    <div class="form-check">
+                                        <input type="radio" name="cv2" class="form-check-input" id="cv2" value="3">
+                                        <label class="form-check-label" for="materialGroupExample3">3. มีผลกระทบปานกลาง
+                                        </label>
+                                    </div>
 
-                    <div><button type="submit" class="btn btn-primary btn-block" id="sub"><i
-                                class="far fa-arrow-alt-circle-right"></i> บันทึกข้อมูล</button></div>
+                                    <!-- Group of material radios - option 4 -->
+                                    <div class="form-check">
+                                        <input type="radio" name="cv2" class="form-check-input" id="cv2" value="4">
+                                        <label class="form-check-label" for="materialGroupExample2">4.
+                                            มีผลกระทบน้อย</label>
+                                    </div>
+                                    <!-- Group of material radios - option 5 -->
+                                    <div class="form-check">
+                                        <input type="radio" name="cv2" class="form-check-input" id="cv2" value="5">
+                                        <label class="form-check-label" for="materialGroupExample3">5.
+                                            มีผลกระทบน้อยที่สุด</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div><button type="submit" class="btn btn-primary btn-block" id="sub"><i class="far fa-arrow-alt-circle-right"></i> บันทึกข้อมูล</button></div>
 
                 </div>
                 <!--mainBox-->

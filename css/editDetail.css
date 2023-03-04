@@ -1,0 +1,84 @@
+.titleShowName h5 {
+    font-size: 22px;
+}
+
+.btnLind {
+    width: 100%;
+    display: inline-block;
+    margin: auto;
+    text-align: center;
+}
+
+.titleTextName {
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.mainS {
+    display: block;
+    width: 100%;
+    padding: 1.5rem;
+    margin: auto;
+    text-align: center;
+}
+
+.imgS {
+    margin: auto;
+    width: 100px;
+    height: auto;
+    display: block;
+}
+
+.imgS img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.numS {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.textS {
+    font-size: 1.2rem;
+}
+
+.headS {
+    font-size: 1.8rem;
+    color: rgb(136, 2, 130);
+    margin-bottom: 1.5rem;
+}
+
+.userS {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.countUser {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.rada {
+    width: 22px;
+    height: 7px;
+}
+
+.radaBox {
+    width: 22px;
+    height: 7px;
+}
+
+@media only screen and (max-width: 1022px) {
+    .rada {
+        width: 150%;
+        height: 150%;
+    }
+    .radaBox {
+        width: 100%;
+        height: 150%;
+    }
+}

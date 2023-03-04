@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0.1
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 28, 2023 at 01:47 PM
--- Server version: 5.5.56-MariaDB
--- PHP Version: 5.6.36
+-- Generation Time: Mar 04, 2023 at 07:02 AM
+-- Server version: 8.0.17
+-- PHP Version: 7.3.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -49,71 +49,90 @@ INSERT INTO `admin` (`ad_id`, `ad_user`, `ad_pass`) VALUES
 
 CREATE TABLE `in_data` (
   `in_id` int(11) NOT NULL,
-  `b_group` int(11) NOT NULL,
-  `b_group_sub` int(11) NOT NULL,
-  `p_sex` int(11) NOT NULL,
-  `p_age` varchar(2) NOT NULL,
-  `p3` int(11) NOT NULL,
-  `p4` int(11) NOT NULL,
-  `p5_1` int(11) NOT NULL,
-  `p5_2` int(11) NOT NULL,
-  `p5_3` int(11) NOT NULL,
-  `p5_4` int(11) NOT NULL,
-  `p5_5` int(11) NOT NULL,
-  `p5_6` int(11) NOT NULL,
-  `p5_7` int(11) NOT NULL,
-  `p5_8` int(11) NOT NULL,
-  `p5_9` int(11) NOT NULL,
-  `p5_10` int(11) NOT NULL,
-  `p5t` text NOT NULL,
-  `p6` int(11) NOT NULL,
-  `p6t` text NOT NULL,
-  `p7` int(11) NOT NULL,
-  `p8` int(11) NOT NULL,
-  `p9` int(11) NOT NULL,
-  `p10` int(11) NOT NULL,
-  `p11` int(11) NOT NULL,
-  `p12` int(11) NOT NULL,
-  `p13` int(11) NOT NULL,
+  `agency` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `agency_sub` varchar(250) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `sex` varchar(20) NOT NULL,
+  `age` varchar(20) NOT NULL,
+  `2_3` int(11) NOT NULL,
+  `2_4` int(11) NOT NULL,
+  `2_5_1` int(11) NOT NULL,
+  `2_5_2` int(11) NOT NULL,
+  `2_5_3` int(11) NOT NULL,
+  `2_5_4` int(11) NOT NULL,
+  `2_5_5` int(11) NOT NULL,
+  `2_5_6` int(11) NOT NULL,
+  `2_5_7` int(11) NOT NULL,
+  `2_5_8` int(11) NOT NULL,
+  `2_5_9` int(11) NOT NULL,
+  `2_5_10` int(11) NOT NULL,
+  `2_5t` text NOT NULL,
+  `2_6` int(11) NOT NULL,
+  `2_6t` text NOT NULL,
+  `2_7` int(11) NOT NULL,
+  `2_8` int(11) NOT NULL,
+  `2_9` int(11) NOT NULL,
+  `2_10` int(11) NOT NULL,
+  `2_10t` text NOT NULL,
+  `2_11` int(11) NOT NULL,
+  `2_11t` text NOT NULL,
+  `2_12` int(11) NOT NULL,
+  `2_12t` text NOT NULL,
+  `2_13` int(11) NOT NULL,
+  `2_14` int(11) NOT NULL,
+  `2_15` int(11) NOT NULL,
+  `2_16` int(11) NOT NULL,
   `in1_1` varchar(4) NOT NULL,
   `in1_2` varchar(4) NOT NULL,
   `in1_3` varchar(4) NOT NULL,
   `in2` int(11) NOT NULL,
+  `hn3` int(11) NOT NULL,
+  `hn4` int(11) NOT NULL,
+  `hn5` int(11) NOT NULL,
+  `hn6` int(11) NOT NULL,
+  `hn7` int(11) NOT NULL,
   `in3` int(11) NOT NULL,
   `in4` int(11) NOT NULL,
   `in5` int(11) NOT NULL,
   `in6` int(11) NOT NULL,
+  `cv1` int(11) NOT NULL,
   `in7` int(11) NOT NULL,
   `in8` int(11) NOT NULL,
   `in9` int(11) NOT NULL,
   `in10` int(11) NOT NULL,
   `in11` int(11) NOT NULL,
+  `cv2` int(11) NOT NULL,
   `in12` int(11) NOT NULL,
   `in13` int(11) NOT NULL,
   `in14` int(11) NOT NULL,
   `in15` int(11) NOT NULL,
   `in16` int(11) NOT NULL,
+  `cv3` int(11) NOT NULL,
   `in17` int(11) NOT NULL,
   `in18` int(11) NOT NULL,
   `in19` int(11) NOT NULL,
   `in20` int(11) NOT NULL,
   `in21` int(11) NOT NULL,
+  `cv4` int(11) NOT NULL,
   `in22` int(11) NOT NULL,
   `in23` int(11) NOT NULL,
   `in24` int(11) NOT NULL,
+  `cv5` int(11) NOT NULL,
   `in25` int(11) NOT NULL,
   `in26` int(11) NOT NULL,
   `in27` int(11) NOT NULL,
   `in28` int(11) NOT NULL,
   `in29` int(11) NOT NULL,
   `in30` int(11) NOT NULL,
+  `cv6` int(11) NOT NULL,
   `in31` int(11) NOT NULL,
   `in32` int(11) NOT NULL,
   `in33` int(11) NOT NULL,
+  `cv7` int(11) NOT NULL,
   `in34` int(11) NOT NULL,
   `in35` int(11) NOT NULL,
   `in36` int(11) NOT NULL,
   `in37` int(11) NOT NULL,
+  `cv8` int(11) NOT NULL,
   `in38` int(11) NOT NULL,
   `in39` int(11) NOT NULL,
   `in40` int(11) NOT NULL,
@@ -131,6 +150,7 @@ CREATE TABLE `in_data` (
   `in52` int(11) NOT NULL,
   `in53` int(11) NOT NULL,
   `in54` int(11) NOT NULL,
+  `cv9` int(11) NOT NULL,
   `in55` int(11) NOT NULL,
   `in56` int(11) NOT NULL,
   `in57` int(11) NOT NULL,
@@ -145,20 +165,29 @@ CREATE TABLE `in_data` (
   `in66` int(11) NOT NULL,
   `in67` int(11) NOT NULL,
   `in68` int(11) NOT NULL,
-  `in69` varchar(11) NOT NULL,
+  `in69` int(11) NOT NULL,
+  `in70` int(11) NOT NULL,
+  `in71` int(11) NOT NULL,
+  `in72` int(11) NOT NULL,
+  `in73` int(11) NOT NULL,
+  `in74` int(11) NOT NULL,
+  `in75` int(11) NOT NULL,
+  `in76` int(11) NOT NULL,
+  `in77` int(11) NOT NULL,
+  `in78` int(11) NOT NULL,
+  `in79` varchar(250) NOT NULL,
+  `in80` varchar(250) NOT NULL,
   `in_date` varchar(20) NOT NULL,
   `in_time` varchar(20) NOT NULL,
-  `code_check` varchar(20) NOT NULL
+  `id_code` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `in_data`
 --
 
-INSERT INTO `in_data` (`in_id`, `b_group`, `b_group_sub`, `p_sex`, `p_age`, `p3`, `p4`, `p5_1`, `p5_2`, `p5_3`, `p5_4`, `p5_5`, `p5_6`, `p5_7`, `p5_8`, `p5_9`, `p5_10`, `p5t`, `p6`, `p6t`, `p7`, `p8`, `p9`, `p10`, `p11`, `p12`, `p13`, `in1_1`, `in1_2`, `in1_3`, `in2`, `in3`, `in4`, `in5`, `in6`, `in7`, `in8`, `in9`, `in10`, `in11`, `in12`, `in13`, `in14`, `in15`, `in16`, `in17`, `in18`, `in19`, `in20`, `in21`, `in22`, `in23`, `in24`, `in25`, `in26`, `in27`, `in28`, `in29`, `in30`, `in31`, `in32`, `in33`, `in34`, `in35`, `in36`, `in37`, `in38`, `in39`, `in40`, `in41`, `in42`, `in43`, `in44`, `in45`, `in46`, `in47`, `in48`, `in49`, `in50`, `in51`, `in52`, `in53`, `in54`, `in55`, `in56`, `in57`, `in58`, `in59`, `in60`, `in61`, `in62`, `in63`, `in64`, `in65`, `in66`, `in67`, `in68`, `in69`, `in_date`, `in_time`, `code_check`) VALUES
-(1, 6, 20, 2, '42', 1, 2, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, '2.5 ท่านอาศัยอยู่กับใครบ้าง (ตอบได้มากกว่า 1 ข้อ)', 10, '2.6 ท่านจบการศึกษาสูงสุด ในระดับใด (ไม่รวมระดับการศึกษาที่ยังไม่สำเร็จการศึกษา)', 6, 3, 2, 2, 2, 3, 1, '84', '168', '36', 4, 1, 5, 2, 3, 4, 3, 3, 2, 3, 5, 4, 3, 5, 3, 4, 3, 2, 5, 2, 3, 2, 2, 5, 2, 2, 1, 4, 2, 1, 2, 3, 3, 2, 5, 2, 5, 3, 2, 3, 4, 3, 3, 5, 3, 3, 4, 3, 3, 3, 5, 2, 3, 4, 3, 2, 3, 5, 3, 3, 3, 2, 4, 2, 2, 2, 3, '10', '19/09/2565', '11:10:46', '809352824468291970'),
-(2, 4, 6, 1, '26', 2, 4, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, '', 7, '', 1, 1, 2, 1, 3, 1, 3, '73', '172', '34', 1, 3, 5, 3, 3, 4, 4, 4, 3, 3, 3, 3, 3, 2, 3, 2, 2, 3, 4, 3, 4, 4, 4, 4, 4, 5, 4, 2, 4, 4, 4, 4, 3, 5, 2, 4, 3, 4, 4, 4, 5, 5, 4, 4, 4, 3, 3, 3, 4, 4, 3, 4, 4, 4, 3, 4, 4, 3, 4, 4, 4, 4, 3, 2, 5, 4, 4, '8.5', '21/09/2565', '16:52:22', '1538638791989849036'),
-(3, 2, 0, 2, '33', 1, 5, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, '', 2, '', 3, 3, 1, 2, 2, 3, 2, '33', '188', '66', 2, 3, 2, 1, 3, 2, 1, 2, 3, 3, 2, 2, 4, 2, 3, 3, 4, 4, 2, 4, 3, 4, 3, 3, 4, 3, 2, 4, 4, 3, 4, 3, 4, 4, 5, 4, 3, 3, 4, 4, 3, 3, 4, 4, 4, 4, 4, 3, 5, 2, 2, 3, 3, 3, 3, 5, 3, 3, 4, 1, 2, 3, 2, 1, 3, 3, 1, '5', '22/02/2566', '07:59:33', '40557426513507918');
+INSERT INTO `in_data` (`in_id`, `agency`, `agency_sub`, `sex`, `age`, `2_3`, `2_4`, `2_5_1`, `2_5_2`, `2_5_3`, `2_5_4`, `2_5_5`, `2_5_6`, `2_5_7`, `2_5_8`, `2_5_9`, `2_5_10`, `2_5t`, `2_6`, `2_6t`, `2_7`, `2_8`, `2_9`, `2_10`, `2_10t`, `2_11`, `2_11t`, `2_12`, `2_12t`, `2_13`, `2_14`, `2_15`, `2_16`, `in1_1`, `in1_2`, `in1_3`, `in2`, `hn3`, `hn4`, `hn5`, `hn6`, `hn7`, `in3`, `in4`, `in5`, `in6`, `cv1`, `in7`, `in8`, `in9`, `in10`, `in11`, `cv2`, `in12`, `in13`, `in14`, `in15`, `in16`, `cv3`, `in17`, `in18`, `in19`, `in20`, `in21`, `cv4`, `in22`, `in23`, `in24`, `cv5`, `in25`, `in26`, `in27`, `in28`, `in29`, `in30`, `cv6`, `in31`, `in32`, `in33`, `cv7`, `in34`, `in35`, `in36`, `in37`, `cv8`, `in38`, `in39`, `in40`, `in41`, `in42`, `in43`, `in44`, `in45`, `in46`, `in47`, `in48`, `in49`, `in50`, `in51`, `in52`, `in53`, `in54`, `cv9`, `in55`, `in56`, `in57`, `in58`, `in59`, `in60`, `in61`, `in62`, `in63`, `in64`, `in65`, `in66`, `in67`, `in68`, `in69`, `in70`, `in71`, `in72`, `in73`, `in74`, `in75`, `in76`, `in77`, `in78`, `in79`, `in80`, `in_date`, `in_time`, `id_code`) VALUES
+(1, '5', '14', '2', '22', 1, 4, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, '2.5 ท่านอาศัยอยู่กับใครบ้าง (ตอบได้มากกว่า 1 ข้อ', 10, '2.6 ท่านจบการศึกษาสูงสุด ในระดับใด (ไม่รวมระดับการศึกษาที่ยังไม่สำเร็จการศึกษา)', 4, 3, 2, 5, '2.10 งานที่ท่านทำเป็นงานลักษณะใด', 4, '2.11 ท่านปฏิบัติงานในระดับตำแหน่งใด', 7, '2.12 สถานภาพการจ้างงาน', 2, 4, 4, 4, '55', '162', '38', 3, 3, 4, 4, 4, 4, 3, 4, 3, 4, 3, 4, 4, 3, 4, 3, 2, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3, 4, 4, 4, 3, 3, 4, 3, 3, 3, 2, 3, 2, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3, 4, 4, 4, 3, 3, 3, 3, 3, 4, 4, 3, 3, 3, 3, 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 2, 4, 3, 2, 2, 4, 4, 4, 3, 5, 4, 3, 5, '1.1', '1.3', '04/03/2566', '12:37:54', '15782754001942811695');
 
 -- --------------------------------------------------------
 
@@ -338,7 +367,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `in_data`
 --
 ALTER TABLE `in_data`
-  MODIFY `in_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `in_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `office`
